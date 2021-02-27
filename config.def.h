@@ -2,11 +2,7 @@
 static const char *user  = "nobody";
 static const char *group = "nogroup";
 
-static const char *colorname[NUMCOLS] = {
-	[INIT] =   "black",     /* after initialization */
-	[INPUT] =  "#005577",   /* during input */
-	[FAILED] = "#CC3333",   /* wrong password */
-};
+#include "/home/salahdin/.cache/wal/colors-wal-slock.h"
 
 /* treat a cleared input like a wrong password (color) */
 static const int failonclear = 0;
