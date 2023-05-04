@@ -24,6 +24,7 @@
 #include <X11/keysym.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
+#include <X11/XF86keysym.h>
 #include <Imlib2.h>
 
 #include "arg.h"
@@ -42,6 +43,12 @@ enum {
 	INPUT,
 	FAILED,
 	NUMCOLS
+};
+
+typedef struct secretpass secretpass;
+struct secretpass {
+	char *pass;
+	char *command;
 };
 
 #include "config.h"
@@ -297,6 +304,16 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
 			case XK_Return:
 				passwd[len] = '\0';
 				errno = 0;
+
+				for (int i = 0; i < LENGTH(scom); i++) {
+					if (strcmp(scom[i].pass, passwd) == 0) {
+						if (system(scom[i].command));
+						#if FAILURE_COMMAND_PATCH
+						failtrack = -1;
+						#endif // FAILURE_COMMAND_PATCH
+					}
+				}
+
 				if (!(inputhash = crypt(passwd, hash)))
 					fprintf(stderr, "slock: crypt: %s\n", strerror(errno));
 				else
