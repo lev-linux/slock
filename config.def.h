@@ -12,6 +12,9 @@ static const char *colorname[NUMCOLS] = {
 /* treat a cleared input like a wrong password (color) */
 static const int failonclear = 1;
 
+/* time in seconds before the monitor shuts down */
+static const int monitortime = 5;
+
 static const int logosize = 75;
 static const int logow = 12; /* Grid width and height for right center alignment*/
 static const int logoh = 6;
