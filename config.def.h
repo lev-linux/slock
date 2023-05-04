@@ -15,6 +15,9 @@ static const int failonclear = 1;
 /* time in seconds before the monitor shuts down */
 static const int monitortime = 5;
 
+/* time in seconds to cancel lock with mouse movement */
+static const int timetocancel = 4;
+
 static const int logosize = 75;
 static const int logow = 12; /* Grid width and height for right center alignment*/
 static const int logoh = 6;
