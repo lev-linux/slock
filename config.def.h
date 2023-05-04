@@ -2,12 +2,18 @@
 static const char *user  = "nobody";
 static const char *group = "wheel";
 
+# define pywal "/home/salastro/.cache/wal/colors-wal-slock.h"
+
+#if __has_include(pywal)
+#include pywal
+#else
 static const char *colorname[NUMCOLS] = {
-    [BACKGROUND] = "white",
-	[INIT] =   "2d2d2d",     /* after initialization */
-	[INPUT] =  "#005577",   /* during input */
-	[FAILED] = "#CC3333",   /* wrong password */
+	[BACKGROUND] =   "#32302f",     /* after initialization */
+	[INIT] =         "#665c54",     /* after initialization */
+	[INPUT] =        "#83a598",     /* during input */
+	[FAILED] =       "#fb4934",     /* wrong password */
 };
+#endif
 
 /* treat a cleared input like a wrong password (color) */
 static const int failonclear = 0;
