@@ -25,7 +25,6 @@
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/XF86keysym.h>
-#include <X11/XF86keysym.h>
 #include <Imlib2.h>
 
 #include "arg.h"
@@ -312,6 +311,8 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
       case XF86XK_AudioMicMute:
       case XF86XK_MonBrightnessDown:
       case XF86XK_MonBrightnessUp:
+      case XK_Shift_L:
+      case XK_Alt_L:
         XSendEvent(dpy, DefaultRootWindow(dpy), True, KeyPressMask, &ev);
         break;
 			case XK_Return:
