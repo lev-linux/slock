@@ -2,5 +2,4 @@
 *.o
 *.orig
 *.rej
-config.h
 slock
