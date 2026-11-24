@@ -20,10 +20,10 @@ static const int timetocancel = 4;
 
 static const secretpass scom[] = {
 /*	 Password				command */
-	{ "s",           "doas poweroff" },
-	{ "r",           "doas reboot" },
-	{ "l",           "doas zzz" },
-	{ "h",           "doas ZZZ" },
+	{ "s",           "systemctl poweroff" },
+	{ "r",           "systemctl reboot" },
+	{ "l",           "systemctl suspend" },
+	{ "h",           "systemctl hibernate" },
 };
 
 /* default message */
